@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var timer = Timer()
+    var counter = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
