@@ -13,9 +13,38 @@ class ViewController: UIViewController {
     var timer = Timer()
     var counter = 0
 
+    @IBOutlet weak var areaPress: UITextField!
+    
+    
+    @IBOutlet weak var pressure: UITextField!
+    
+    @IBOutlet weak var upDownTime: UITextField!
+    
+    @IBOutlet weak var downDownTime: UITextField!
+    
+    @IBOutlet weak var timerField: UITextField!
+    
+    @IBAction func push(_ sender: AnyObject) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target:self, selector: #selector(ViewController.updateCounter), userInfo: nil, repeats: true)
+    }
+
+    @IBAction func release(_ sender: AnyObject) {
+        timer.invalidate()
+    }
+    
+    func updateCounter() {
+        
+        counter = counter + 0.01
+        timerField.text = String(counter)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+            timerField.text = String(counter)
+        
     }
 
     override func didReceiveMemoryWarning() {
